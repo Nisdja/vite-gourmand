@@ -1,0 +1,26 @@
+body{
+    background:#f8f9fa;
+}
+
+.hero{
+
+    background:#fff;
+
+    padding:70px;
+
+    border-radius:15px;
+
+    text-align:center;
+
+}
+
+.card-menu{
+
+    transition:.3s;
+}
+
+.card-menu:hover{
+
+    transform:translateY(-5px);
+
+}
