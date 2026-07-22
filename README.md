@@ -1,6 +1,6 @@
-# 🍽️ Vite & Gourmand
+# Vite & Gourmand
 
-Application web de gestion d'un service traiteur réalisée dans le cadre de l'ECF Studi.
+Application web de gestion d'un service traiteur développée dans le cadre de l'ECF Développeur Web et Web Mobile de Studi.
 
 ---
 
@@ -8,16 +8,18 @@ Application web de gestion d'un service traiteur réalisée dans le cadre de l'E
 
 ## Clients
 
-- Connexion
+- Création d'un compte
+- Connexion / Déconnexion
 - Modification du profil
 - Consultation des menus
-- Filtrage AJAX des menus
+- Filtrage dynamique des menus (AJAX)
 - Création d'une commande
 - Calcul automatique du prix
 - Livraison gratuite à Bordeaux
 - Livraison hors Bordeaux (5 € + 0,59 €/km)
-- Remise de 10 % à partir du minimum + 5 personnes
+- Remise de 10 % à partir de 5 personnes
 - Historique des commandes
+- Dépôt d'avis après une commande
 
 ---
 
@@ -25,31 +27,33 @@ Application web de gestion d'un service traiteur réalisée dans le cadre de l'E
 
 - Tableau de bord
 - Consultation des commandes
-- Modification du statut
-- Historique des statuts
+- Modification du statut des commandes
+- Historique des changements de statut
+- Gestion du matériel
 
 ---
 
 ## Administrateurs
 
 - Gestion des utilisateurs
-- Création d'employés
+- Création de comptes employés
 - Activation / désactivation des comptes
 - Gestion complète des menus
 - Gestion complète des commandes
+- Validation des avis clients
 
 ---
 
-# Envoi d'e-mails
+# Notifications par e-mail
 
-L'application utilise PHPMailer.
+L'application utilise **PHPMailer** pour envoyer automatiquement :
 
-Les e-mails envoyés sont :
-
+- E-mail de bienvenue
 - Confirmation de commande
-- Création d'un employé
+- Création d'un compte employé
 - Réinitialisation du mot de passe
-- Commande terminée
+- Notification de commande terminée
+- Notification de retour du matériel
 
 ---
 
@@ -57,9 +61,11 @@ Les e-mails envoyés sont :
 
 - PHP 8
 - MySQL
+- HTML5
+- CSS3
+- Bootstrap 5
 - JavaScript
 - AJAX
-- Bootstrap 5
 - Composer
 - PHPMailer
 - MongoDB (statistiques)
@@ -68,21 +74,21 @@ Les e-mails envoyés sont :
 
 # Installation
 
-## Cloner le projet
+## 1. Cloner le projet
 
 ```bash
-git clone ...
+git clone https://github.com/Nisdja/vite-gourmand.git
 ```
 
-ou copier le projet dans :
+ou copier le dossier dans :
 
-```
+```text
 C:\xampp\htdocs\vite-gourmand
 ```
 
 ---
 
-## Installer les dépendances
+## 2. Installer les dépendances
 
 ```bash
 composer install
@@ -90,11 +96,11 @@ composer install
 
 ---
 
-## Importer la base
+## 3. Importer la base de données
 
-Importer :
+Importer le fichier :
 
-```
+```text
 vite_gourmand.sql
 ```
 
@@ -102,79 +108,67 @@ dans phpMyAdmin.
 
 ---
 
-## Configurer la connexion MySQL
+## 4. Configurer la base de données
 
-Modifier :
+Modifier le fichier :
 
-```
+```text
 app/config/database.php
 ```
 
----
+avec vos informations de connexion MySQL.
 
-## Configurer les e-mails
 
-Créer :
+# Lancement du projet
 
+En local :
+
+```text
+http://localhost/vite-gourmand/public/
 ```
-config/mail.php
-```
 
-avec :
+En ligne :
 
-```php
-return [
-
-    'host'=>'smtp.gmail.com',
-
-    'port'=>587,
-
-    'username'=>'votre@gmail.com',
-
-    'password'=>'mot_de_passe_application',
-
-    'from_email'=>'votre@gmail.com',
-
-    'from_name'=>'Vite & Gourmand'
-
-];
+```text
+https://vitegourmand.ifree.page/vite-gourmand/public/
 ```
 
 ---
 
-# Lancer le projet
+# Comptes de démonstration
+
+## Administrateur
 
 ```
-http://localhost/vite-gourmand/public
+Email : admin@vitegourmand.fr
+Mot de passe : Admin@12345
+```
+
+## Employé
+
+```
+Email : djamel@test
+Mot de passe : Djamel0101
+```
+
+## Client
+
+```
+Email : djamelchebani@gmail.com
+Mot de passe : Djamel0101*
 ```
 
 ---
 
-# Comptes de test
+# Gestion de projet
 
-Administrateur
-
-```
-admin@test.fr
-********
-```
-
-Employé
-
-```
-employe@test.fr
-********
-```
-
-Client
-
-```
-client@test.fr
-********
-```
+- GitHub : https://github.com/Nisdja/vite-gourmand
+- Trello : https://trello.com/b/0fK3i4hW/vite-gourmand
 
 ---
 
 # Auteur
 
-Projet réalisé dans le cadre de l'ECF Studi.
+**CHEBANI Djanis**
+
+Projet réalisé dans le cadre de l'ECF Développeur Web et Web Mobile - Studi.
