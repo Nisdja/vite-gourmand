@@ -1,8 +1,7 @@
 USE vite_gourmand;
 
--- =====================================
 -- THEMES
--- =====================================
+
 
 INSERT INTO themes (nom) VALUES
 ('Noël'),
@@ -10,9 +9,9 @@ INSERT INTO themes (nom) VALUES
 ('Classique'),
 ('Événement');
 
--- =====================================
+
 -- REGIMES
--- =====================================
+
 
 INSERT INTO regimes (nom) VALUES
 ('Classique'),
@@ -20,9 +19,9 @@ INSERT INTO regimes (nom) VALUES
 ('Vegan'),
 ('Sans gluten');
 
--- =====================================
+
 -- ALLERGENES
--- =====================================
+
 
 INSERT INTO allergenes (nom) VALUES
 ('Gluten'),
@@ -36,9 +35,9 @@ INSERT INTO allergenes (nom) VALUES
 ('Moutarde'),
 ('Sésame');
 
--- =====================================
+
 -- HORAIRES
--- =====================================
+
 
 INSERT INTO horaires (jour, ouverture, fermeture) VALUES
 ('Lundi','09:00:00','18:00:00'),
@@ -49,9 +48,9 @@ INSERT INTO horaires (jour, ouverture, fermeture) VALUES
 ('Samedi','10:00:00','20:00:00'),
 ('Dimanche','10:00:00','14:00:00');
 
--- =====================================
+
 -- PLATS
--- =====================================
+
 
 INSERT INTO plats (nom, description, type) VALUES
 ('Foie gras maison','Foie gras artisanal','entree'),
@@ -67,9 +66,8 @@ INSERT INTO plats (nom, description, type) VALUES
 ('Fondant au chocolat','Cœur coulant','dessert'),
 ('Tarte aux pommes','Maison','dessert');
 
--- =====================================
 -- MENUS
--- =====================================
+
 
 INSERT INTO menus
 (titre,description,theme_id,regime_id,nb_personnes_min,prix,conditions_menu,stock)
@@ -108,9 +106,8 @@ VALUES
 5
 );
 
--- =====================================
 -- MENU / PLAT
--- =====================================
+
 
 INSERT INTO menu_plat VALUES
 (1,1),
@@ -125,9 +122,9 @@ INSERT INTO menu_plat VALUES
 (3,5),
 (3,9);
 
--- =====================================
+
 -- ALLERGENES
--- =====================================
+
 
 INSERT INTO plat_allergene VALUES
 (1,2),
@@ -139,9 +136,9 @@ INSERT INTO plat_allergene VALUES
 (9,2),
 (10,1);
 
--- =====================================
+
 -- IMAGES
--- =====================================
+
 
 INSERT INTO images_menu(menu_id,image) VALUES
 (1,'noel1.jpg'),
