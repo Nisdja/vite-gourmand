@@ -12,15 +12,99 @@ include __DIR__ . "/../layouts/header.php";
         Nos Menus
     </h1>
 
-    <?php if (empty($menus)) : ?>
+    <div class="row mb-4">
 
-        <div class="alert alert-warning text-center">
-            Aucun menu disponible.
+        <div class="col-md-4 mb-3">
+
+            <label for="theme" class="form-label">
+                Thème
+            </label>
+
+            <select
+                id="theme"
+                class="form-select">
+
+                <option value="">
+                    Tous les thèmes
+                </option>
+
+                <?php foreach ($themes as $theme) : ?>
+
+                    <option
+                        value="<?= htmlspecialchars($theme["nom"]) ?>">
+
+                        <?= htmlspecialchars($theme["nom"]) ?>
+
+                    </option>
+
+                <?php endforeach; ?>
+
+            </select>
+
         </div>
 
-    <?php else : ?>
+        <div class="col-md-4 mb-3">
 
-        <div class="row">
+            <label for="regime" class="form-label">
+                Régime
+            </label>
+
+            <select
+                id="regime"
+                class="form-select">
+
+                <option value="">
+                    Tous les régimes
+                </option>
+
+                <?php foreach ($regimes as $regime) : ?>
+
+                    <option
+                        value="<?= htmlspecialchars($regime["nom"]) ?>">
+
+                        <?= htmlspecialchars($regime["nom"]) ?>
+
+                    </option>
+
+                <?php endforeach; ?>
+
+            </select>
+
+        </div>
+
+        <div class="col-md-4 mb-3">
+
+            <label for="prixMax" class="form-label">
+                Prix maximum
+            </label>
+
+            <input
+                type="number"
+                class="form-control"
+                id="prixMax"
+                placeholder="Ex : 25">
+
+        </div>
+
+    </div>
+
+    <div
+        id="menus-container"
+        class="row">
+
+        <?php if (empty($menus)) : ?>
+
+            <div class="col-12">
+
+                <div class="alert alert-warning text-center">
+
+                    Aucun menu disponible.
+
+                </div>
+
+            </div>
+
+        <?php else : ?>
 
             <?php foreach ($menus as $menu) : ?>
 
@@ -31,32 +115,51 @@ include __DIR__ . "/../layouts/header.php";
                         <div class="card-body d-flex flex-column">
 
                             <h4 class="card-title">
+
                                 <?= htmlspecialchars($menu["titre"]) ?>
+
                             </h4>
 
                             <p class="card-text">
+
                                 <?= htmlspecialchars($menu["description"]) ?>
+
                             </p>
 
                             <hr>
 
                             <p>
+
                                 <strong>Thème :</strong>
+
                                 <?= htmlspecialchars($menu["theme"]) ?>
+
                             </p>
 
                             <p>
+
                                 <strong>Régime :</strong>
+
                                 <?= htmlspecialchars($menu["regime"]) ?>
+
                             </p>
 
                             <p>
+
                                 <strong>Minimum :</strong>
-                                <?= $menu["nb_personnes_min"] ?> personnes
+
+                                <?= $menu["nb_personnes_min"] ?>
+
+                                personnes
+
                             </p>
 
                             <p class="fs-4 text-success fw-bold">
-                                <?= number_format($menu["prix"], 2, ",", " ") ?> €
+
+                                <?= number_format($menu["prix"], 2, ",", " ") ?>
+
+                                €
+
                             </p>
 
                             <div class="mt-auto">
@@ -79,11 +182,13 @@ include __DIR__ . "/../layouts/header.php";
 
             <?php endforeach; ?>
 
-        </div>
+        <?php endif; ?>
 
-    <?php endif; ?>
+    </div>
 
 </div>
+
+<script src="/vite-gourmand/public/assets/js/menu-filter.js"></script>
 
 <?php
 

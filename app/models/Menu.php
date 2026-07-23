@@ -145,4 +145,48 @@ class Menu
     }
 
 
+    public function filter(
+    ?string $theme = null,
+    ?string $regime = null,
+    ?float $prixMax = null
+)
+{
+    $sql = "
+        SELECT
+            menus.*,
+            themes.nom AS theme,
+            regimes.nom AS regime
+        FROM menus
+        LEFT JOIN themes
+            ON menus.theme_id = themes.id
+        LEFT JOIN regimes
+            ON menus.regime_id = regimes.id
+        WHERE 1=1
+    ";
+
+    $params = [];
+
+    if (!empty($theme)) {
+        $sql .= " AND themes.nom = ?";
+        $params[] = $theme;
+    }
+
+    if (!empty($regime)) {
+        $sql .= " AND regimes.nom = ?";
+        $params[] = $regime;
+    }
+
+    if (!empty($prixMax)) {
+        $sql .= " AND menus.prix <= ?";
+        $params[] = $prixMax;
+    }
+
+    $sql .= " ORDER BY menus.titre";
+
+    $stmt = $this->pdo->prepare($sql);
+    $stmt->execute($params);
+
+    return $stmt->fetchAll(PDO::FETCH_ASSOC);
+}
+
 }
