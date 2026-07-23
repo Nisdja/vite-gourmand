@@ -171,4 +171,4 @@ Mot de passe : Djamel0101*
 
 **CHEBANI Djanis**
 
-Projet réalisé dans le cadre de l'ECF Développeur Web et Web Mobile - Studi.
+Projet réalisé dans le cadre de l'ECF Développeur Web et Web Mobile - Studi. 
